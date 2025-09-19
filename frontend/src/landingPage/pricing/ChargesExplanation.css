@@ -1,0 +1,24 @@
+/* Tabel Styling........... */
+.table-wrapper {
+        border: 1px solid #ddd !important;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+.table{
+    font-size: 0.9rem;
+    width: 100%;
+    
+}
+.table td{
+    padding: 12px 15px;
+    color: #424242;
+    border: none;
+}
+.table th{
+    padding: 12px 15px;
+    color: #424242;
+    font-weight: 500;
+}
+.table-para {
+    font-size: 0.75rem;
+}

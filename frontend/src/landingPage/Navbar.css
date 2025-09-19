@@ -1,0 +1,19 @@
+.navbar {
+  top: 0;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  margin-left: 25px; 
+  opacity: 0.7;
+}
+
+.nav-link:hover{
+  /* opacity: 1; */
+  color: #387ed1 !important;
+}
+
+.logo_image {
+    width: 19%;
+    margin-left: 100px;
+}

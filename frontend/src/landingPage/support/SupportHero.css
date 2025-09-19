@@ -1,0 +1,42 @@
+/* Hide Bootstrap's default caret */
+.dropdown-toggle::after {
+  display: none;
+}
+
+/* Custom caret icon */
+.dropdown-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #387ed1;
+}
+
+.dropdown-text {
+    color: #424242;
+}
+
+.dropdown-item {
+    color: #387ed1;
+}
+
+.dropdown-menu {
+  position: static;
+}
+
+.dropdown-menu li{
+
+  list-style-type: disc !important; /* Show bullet */   /* Space between bullet and text */
+  color: #387ed1;
+  margin-left: 8%;
+}
+
+.table{
+    border: 1px solid #eee;
+}
+
+.table-body tr td a{
+    text-decoration: none;
+}
+
+

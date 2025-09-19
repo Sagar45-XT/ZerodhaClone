@@ -1,0 +1,68 @@
+.logo-para {
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+
+.social-connection {
+    font-size: 1.25rem;
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0
+}
+
+.social-connection li a{
+    color:black;
+    opacity: 0.6;
+}
+
+.social-connection li a:hover{
+    color: #387ed1;
+}
+
+
+.footer-ul {
+    list-style-type: none;
+    line-height: 2.6rem;
+}
+
+.list-heading {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.list-item {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.list-item a{
+    text-decoration: none;
+    color: #424242;
+}
+
+.list-item a:hover{
+    color:#387ed1;
+}
+
+.footer-para {
+    font-size: 0.6rem;
+    opacity: 0.7;
+}
+
+.footer-para a{ 
+    text-decoration: none;
+}
+
+.footer-graveyard a{
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #666;
+    opacity: 0.7;
+}
+
+.footer-graveyard a:hover{
+    color:#387ed1;
+}
