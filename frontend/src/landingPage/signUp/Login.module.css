@@ -1,0 +1,12 @@
+.login_form input{
+  border: none;
+  padding: 0.5rem;
+  border-bottom: 1px solid gray;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.login_form input::placeholder {
+  font-size: 0.9rem;
+  font-style: italic;
+}
