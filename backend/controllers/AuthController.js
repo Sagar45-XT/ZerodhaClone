@@ -3,7 +3,7 @@ const { createSecretToken } = require("../util/SecretToken");
 const bcrypt = require("bcryptjs");
 
 module.exports.Signup = async (req, res, next) => {
-    console.log("📥 Signup route hit");
+    console.log("Signup route hit");
     try {
         const { email, password, username, createdAt } = req.body;
         const existingUser = await User.findOne({ email });
