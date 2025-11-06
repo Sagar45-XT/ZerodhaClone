@@ -1,28 +1,68 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {VerticalGraph} from "./VerticalGraph";
-
-// import { holdings } from "../data/data";
+import { toast } from "react-toastify";
+// Import VerticalGraph if you're using it
+import {VerticalGraph} from './VerticalGraph';  // Add this import
 
 function Holdings() {
-  const[allHoldings, setAllHoldings] = useState([]);
-  useEffect(()=>{
-      axios.get("http://localhost:3000/allHoldings").then((res) =>{
-        console.log(res.data);
-        setAllHoldings(res.data);
-      });
+  const [allHoldings, setAllHoldings] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchHoldings = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        // if (!token) {
+        //   window.location.replace("http://localhost:3001/login");
+        //   return;
+        // }
+
+        const response = await axios.get("http://localhost:3000/allHoldings", {
+          headers: { 
+            Authorization: `Bearer ${token}` 
+          },
+          withCredentials: true
+        });
+
+        if (response.data) {
+          setAllHoldings(response.data);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error("Holdings fetch error:", error);
+        if (error.response?.status === 401) {
+          toast.error("Session expired. Please login again.");
+          setTimeout(() => {
+            window.location.replace("http://localhost:3001/login");
+          }, 1000);
+        } else {
+          toast.error("Failed to fetch holdings");
+        }
+        setLoading(false);
+      }
+    };
+
+    fetchHoldings();
   }, []);
 
-  const labels = allHoldings.map((subArray) => subArray["name"]);
-  const data = {
-    labels,
-    datasets: [
-    {
-      label: "Stock Price",
-      data: allHoldings.map((stock) => stock.price),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },]
+  if (loading) {
+    return <div>Loading holdings...</div>;
   }
+
+  // Define data for the VerticalGraph
+  const data = {
+    labels: allHoldings.map((holding) => holding.name),
+    datasets: [
+      {
+        // Add your dataset configuration here
+        data: allHoldings.map((holding) => holding.quantity),
+        // Add other required properties
+      }
+    ]
+  };
+
+
+
 
   return (
     <>
@@ -59,7 +99,7 @@ function Holdings() {
               </tr>
             );
           })}
-        </table>  
+        </table>
       </div>
 
       <div className="row">
@@ -76,9 +116,9 @@ function Holdings() {
           <p>P&L</p>
         </div>
       </div>
-      < VerticalGraph data = {data}/>
+      < VerticalGraph data={data} />
     </>
-   );
+  );
 };
 
 export default Holdings;
