@@ -34,7 +34,7 @@ function Signup() {
         e.preventDefault();
         try { 
             const { data } = await axios.post(
-                "http://localhost:3000/signup",
+                "https://zerodhaapp-tjq6.onrender.com/signup",
                 {
                     ...inputValue,
                 },
@@ -44,7 +44,7 @@ function Signup() {
             if (success) {
                 handleSuccess(message);
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3002/";
+                    window.location.href = "https://main.d2kuzi0pspozro.amplifyapp.com";
                 }, 1000);
             } else {
                 handleError(message);

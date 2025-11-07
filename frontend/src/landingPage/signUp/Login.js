@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/login",
+        "https://zerodhaapp-tjq6.onrender.com/login",
         {
           ...inputValue,
         },
@@ -44,7 +44,7 @@ const Login = () => {
         handleSuccess(message);
         setTimeout(() => {
           // window.location.replace = "http://localhost:3002/";
-          window.location.replace("http://localhost:3002/");
+          window.location.replace("https://main.d2kuzi0pspozro.amplifyapp.com");
         }, 1000);
       } else {
         handleError(message);
