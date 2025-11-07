@@ -17,7 +17,7 @@ function Holdings() {
         //   return;
         // }
 
-        const response = await axios.get("http://localhost:3000/allHoldings", {
+        const response = await axios.get("https://zerodhaapp-tjq6.onrender.com/allHoldings", {
           headers: { 
             Authorization: `Bearer ${token}` 
           },
@@ -33,7 +33,7 @@ function Holdings() {
         if (error.response?.status === 401) {
           toast.error("Session expired. Please login again.");
           setTimeout(() => {
-            window.location.replace("http://localhost:3001/login");
+            window.location.replace("https://main.dluda969rbph4.amplifyapp.com/login");
           }, 1000);
         } else {
           toast.error("Failed to fetch holdings");
