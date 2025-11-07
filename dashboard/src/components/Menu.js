@@ -10,7 +10,7 @@ const Menu = () => {
 
   useEffect(() => {
     // Fetch username from backend
-    axios.get("http://localhost:3000/profile", { withCredentials: true })
+    axios.get("https://zerodhaapp-tjq6.onrender.com/profile", { withCredentials: true })
       .then(res => setUsername(res.data.username))
       .catch(() => setUsername("USER"));
   }, []);
@@ -31,14 +31,14 @@ const Menu = () => {
   const handleLogout = async () => {
     try {
       const { data } = await axios.post(
-         "http://localhost:3000/logout",
+         "https://zerodhaapp-tjq6.onrender.com/logout",
          {},
          { withCredentials: true }
        );
        toast.success(data?.message || "Logged out");
        // Redirect to frontend login page (replace history so back doesn't return to dashboard)
        setTimeout(() => {
-         window.location.replace("http://localhost:3001/login");
+         window.location.replace("https://main.dluda969rbph4.amplifyapp.com/login");
        }, 400);
     } catch (err) {
       //  console.error("Logout failed:", err);
