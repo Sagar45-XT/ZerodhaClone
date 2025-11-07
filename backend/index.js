@@ -16,7 +16,12 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-    origin: ["http://localhost:3001", "http://localhost:3002"],
+    origin: [
+        "http://localhost:3001", 
+        "http://localhost:3002",
+        "https://main.dluda969rbph4.amplifyapp.com",
+        "https://main.d2kuzi0pspozro.amplifyapp.com"
+    ],
     credentials: true,
     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 }));
