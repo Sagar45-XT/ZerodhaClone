@@ -13,7 +13,7 @@ function Holdings() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await axios.get("https://zerodhaapp-tjq6.onrender.com/allHoldings", {
+        const response = axios.get("https://zerodhaapp-tjq6.onrender.com/allHoldings", {
           headers: { 
             Authorization: `Bearer ${token}`
           },
@@ -26,14 +26,14 @@ function Holdings() {
         setLoading(false);
       } catch (error) {
         console.error("Holdings fetch error:", error);
-        // if (error.response?.status === 401) {
-        //   toast.error("Session expired. Please login again.");
-        //   // setTimeout(() => {
-        //   //   window.location.replace("https://main.dluda969rbph4.amplifyapp.com/login");
-        //   // }, 2000);
-        // } else {
-        //   toast.error("Failed to fetch holdings");
-        // }
+        if (error.response?.status === 401) {
+          toast.error("Session expired. Please login again.");
+          // setTimeout(() => {
+          //   window.location.replace("https://main.dluda969rbph4.amplifyapp.com/login");
+          // }, 1000);
+        } else {
+          toast.error("Failed to fetch holdings");
+        }
         setLoading(false);
       }
     };
@@ -55,11 +55,7 @@ function Holdings() {
       }
     ]
   };
-
-
-
-
-  return (
+return (
     <>
       <h3 className="title">Holdings ({allHoldings.length})</h3>
       <div className="order-table">
