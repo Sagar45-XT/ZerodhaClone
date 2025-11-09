@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-// Import VerticalGraph if you're using it
-import {VerticalGraph} from './VerticalGraph';  // Add this import
+ 
+import {VerticalGraph} from './VerticalGraph';
 
 function Holdings() {
   const [allHoldings, setAllHoldings] = useState([]);
@@ -12,10 +12,6 @@ function Holdings() {
     const fetchHoldings = async () => {
       try {
         const token = localStorage.getItem("token");
-        // if (!token) {
-        //   window.location.replace("http://localhost:3001/login");
-        //   return;
-        // }
 
         const response = await axios.get("https://zerodhaapp-tjq6.onrender.com/allHoldings", {
           headers: { 
@@ -30,14 +26,14 @@ function Holdings() {
         setLoading(false);
       } catch (error) {
         console.error("Holdings fetch error:", error);
-        if (error.response?.status === 401) {
-          toast.error("Session expired. Please login again.");
-          // setTimeout(() => {
-          //   window.location.replace("https://main.dluda969rbph4.amplifyapp.com/login");
-          // }, 2000);
-        } else {
-          toast.error("Failed to fetch holdings");
-        }
+        // if (error.response?.status === 401) {
+        //   toast.error("Session expired. Please login again.");
+        //   // setTimeout(() => {
+        //   //   window.location.replace("https://main.dluda969rbph4.amplifyapp.com/login");
+        //   // }, 2000);
+        // } else {
+        //   toast.error("Failed to fetch holdings");
+        // }
         setLoading(false);
       }
     };
@@ -56,7 +52,6 @@ function Holdings() {
       {
         // Add your dataset configuration here
         data: allHoldings.map((holding) => holding.quantity),
-        // Add other required properties
       }
     ]
   };
