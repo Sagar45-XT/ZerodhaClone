@@ -13,7 +13,7 @@ function Holdings() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = axios.get("https://zerodhaapp-tjq6.onrender.com/allHoldings", {
+        const response = await axios.get("https://zerodhaapp-tjq6.onrender.com/allHoldings", {
           headers: { 
             Authorization: `Bearer ${token}`
           },
