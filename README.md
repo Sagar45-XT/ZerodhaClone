@@ -2,6 +2,24 @@
 
 A full-stack demo project that replicates core features of Zerodha's trading application. Built for personal learning and showcase purposes.
 
+**🚀 Live Demo:** 
+    Link - https://main.dluda969rbph4.amplifyapp.com/
+    Must visit link for intraction with the project and better understanding
+
+👉 - Login Credentials (for demo use):
+        Email: demo@example.com
+        Password: demo123
+    
+    You can also make your own account through signup
+
+⚠️ Notes
+        The dashboard currently displays preloaded demo data for holdings and portfolio values.
+
+        A live stock market API was not integrated because it requires a paid subscription.
+
+        All calculations (P&L, current value, day change) are performed on this demo dataset to simulate real trading behavior.
+
+        The project structure is ready for live API integration — only the API key and subscription need to be added.
 ## Tech Stack
 
 - **Frontend**: React, Tailwind CSS, Material UI, Bootstrap
@@ -28,7 +46,7 @@ A full-stack demo project that replicates core features of Zerodha's trading app
 
 * Clone the repo:
 ```bash
-git clone https://github.com/yourusername/zerodhaClone.git
+git clone https://github.com/Sagar45-XT/ZerodhaClone.git
 
 cd backend
 npm install
